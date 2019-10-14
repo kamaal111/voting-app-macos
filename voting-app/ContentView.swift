@@ -10,15 +10,35 @@ import SwiftUI
 
 
 struct ContentView: View {
-    let qrCode = generateQRCode(from: "google.com")
+    @State private var qrCodeUrlFetched = false
+
+    let qrCode = generateQRCode(from: "google.com", size: 10)
 
     var body: some View {
         VStack {
-            Text("Time to vote")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            Image(nsImage: qrCode!)
+            if qrCodeUrlFetched {
+                Text("Time to vote")
+
+                Button(action: {
+                    self.qrCodeUrlFetched = !self.qrCodeUrlFetched
+                }, label: {
+                    Text("End Session")
+                })
+                
+                Image(nsImage: qrCode!)
+                    .padding(EdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0))
+            } else {
+                Button(action: {
+                    self.qrCodeUrlFetched = !self.qrCodeUrlFetched
+                }, label: {
+                    Text("Start Session")
+                })
+
+                EmptyView()
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

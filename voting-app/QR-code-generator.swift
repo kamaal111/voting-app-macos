@@ -9,12 +9,12 @@
 import AppKit
 
 
-func generateQRCode(from string: String) -> NSImage? {
+func generateQRCode(from string: String, size: CGFloat) -> NSImage? {
     let data = string.data(using: String.Encoding.ascii)
 
     if let filter = CIFilter(name: "CIQRCodeGenerator") {
         filter.setValue(data, forKey: "inputMessage")
-        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        let transform = CGAffineTransform(scaleX: size, y: size)
 
         if let output = filter.outputImage?.transformed(by: transform) {
             let representation = NSCIImageRep(ciImage: output)
