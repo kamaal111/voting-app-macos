@@ -71,9 +71,19 @@ struct ContentView: View {
             } else {
                 HStack {
                     VStack {
-                        TextField("", text: $candidatesTextField, onCommit: {
-                            self.submitCandidateToList()
-                        })
+                        Text("Candidates").font(Font.title)
+                        HStack {
+                            Text("Name:")
+                            TextField("", text: $candidatesTextField, onCommit: {
+                                self.submitCandidateToList()
+                            })
+                            Button(action: {
+                                self.submitCandidateToList()
+                            }, label: {
+                                Text("Submit")
+                            })
+                        }
+
                         List(candidatesList, id: \.id) { candidate in
                             Text(candidate.name)
                         }
