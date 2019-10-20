@@ -10,12 +10,6 @@
 import SwiftUI
 
 
-struct Candidate {
-    let id: Int
-    let name: String
-}
-
-
 struct ContentView: View {
     @State private var sessionTitleTextField = ""
     @State private var sessionTitle = ""
@@ -107,8 +101,7 @@ struct ContentView: View {
                     }
                 }
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
