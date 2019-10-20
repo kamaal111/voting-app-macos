@@ -10,32 +10,49 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @State private var sessionTitleTextField = ""
+    @State private var sessionTitle = ""
     @State private var qrCodeUrlFetched = false
+    @State private var qrCodePath = "github.com"
 
-    let qrCode = generateQRCode(from: "google.com", size: 10)
+
+    fileprivate func SessionButton(text: String) -> Button<Text> {
+        return Button(action: {
+            self.qrCodeUrlFetched = !self.qrCodeUrlFetched
+        }, label: {
+            Text(text)
+        })
+    }
+
 
     var body: some View {
         VStack {
-
             if qrCodeUrlFetched {
                 Text("Time to vote")
-
-                Button(action: {
-                    self.qrCodeUrlFetched = !self.qrCodeUrlFetched
-                }, label: {
-                    Text("End Session")
-                })
-                
-                Image(nsImage: qrCode!)
+                SessionButton(text: "End Session")
+                Image(nsImage: generateQRCode(from: qrCodePath, size: 10)!)
                     .padding(EdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0))
             } else {
-                Button(action: {
-                    self.qrCodeUrlFetched = !self.qrCodeUrlFetched
-                }, label: {
-                    Text("Start Session")
-                })
-
-                EmptyView()
+                HStack {
+                    List {
+                        EmptyView()
+                    }
+                    VStack {
+                        HStack{
+                            Text("Session Title:")
+                            TextField("", text: $sessionTitleTextField, onCommit: {
+                                if self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty {
+                                    print("hello")
+                                } else {
+                                    self.sessionTitle = self.sessionTitleTextField
+                                    self.sessionTitleTextField = ""
+                                }
+                            })
+                        }
+                        Text(sessionTitle).font(.title)
+                        SessionButton(text: "Start Session")
+                    }
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
