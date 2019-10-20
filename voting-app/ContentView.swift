@@ -10,11 +10,21 @@
 import SwiftUI
 
 
+struct Candidate {
+    let id: Int
+    let name: String
+}
+
+
 struct ContentView: View {
     @State private var sessionTitleTextField = ""
     @State private var sessionTitle = ""
+
     @State private var qrCodeUrlFetched = false
     @State private var qrCodePath = "https://github.com/kamaal111"
+
+    @State private var candidatesTextField = ""
+    @State private var candidatesList: [Candidate] = []
 
 
     let sessionTitleMaxLength = 15
@@ -25,6 +35,19 @@ struct ContentView: View {
             && self.sessionTitleTextField.count > 2 {
             self.sessionTitle = String(self.sessionTitleTextField.prefix(self.sessionTitleMaxLength))
             self.sessionTitleTextField = ""
+        }
+    }
+
+
+    func submitCandidateToList() -> Void {
+        if !self.candidatesTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
+            && self.candidatesTextField.count > 2 {
+            let candidate = Candidate(
+                id: candidatesList.count + 1,
+                name: self.candidatesTextField
+            )
+            self.candidatesList.append(candidate)
+            self.candidatesTextField = ""
         }
     }
 
@@ -47,8 +70,23 @@ struct ContentView: View {
                     .padding(EdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0))
             } else {
                 HStack {
-                    List {
-                        EmptyView()
+                    VStack {
+                        Text("Candidates").font(Font.title)
+                        HStack {
+                            Text("Name:")
+                            TextField("", text: $candidatesTextField, onCommit: {
+                                self.submitCandidateToList()
+                            })
+                            Button(action: {
+                                self.submitCandidateToList()
+                            }, label: {
+                                Text("Submit")
+                            })
+                        }
+
+                        List(candidatesList, id: \.id) { candidate in
+                            Text(candidate.name)
+                        }
                     }
                     VStack {
                         HStack{
