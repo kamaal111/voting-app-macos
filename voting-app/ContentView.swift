@@ -6,6 +6,7 @@
 //  Copyright © 2019 Kamaal. All rights reserved.
 //
 
+
 import SwiftUI
 
 
@@ -14,6 +15,18 @@ struct ContentView: View {
     @State private var sessionTitle = ""
     @State private var qrCodeUrlFetched = false
     @State private var qrCodePath = "https://github.com/kamaal111"
+
+
+    let sessionTitleMaxLength = 15
+
+
+    func submitSessionTitle() -> Void {
+        if !self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
+            && self.sessionTitleTextField.count > 2 {
+            self.sessionTitle = String(self.sessionTitleTextField.prefix(self.sessionTitleMaxLength))
+            self.sessionTitleTextField = ""
+        }
+    }
 
 
     fileprivate func SessionButton(text: String) -> Button<Text> {
@@ -39,25 +52,19 @@ struct ContentView: View {
                     }
                     VStack {
                         HStack{
-                            Text("Session Title:")
-                            TextField("", text: $sessionTitleTextField, onCommit: {
-                                if !self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
-                                    && self.sessionTitleTextField.count > 2 {
-                                    self.sessionTitle = self.sessionTitleTextField
-                                    self.sessionTitleTextField = ""
-                                }
-                            })
-                            Button(action: {
-                                if !self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
-                                    && self.sessionTitleTextField.count > 2 {
-                                    self.sessionTitle = self.sessionTitleTextField
-                                    self.sessionTitleTextField = ""
-                                }
-                            }, label: {
-                                Text("Submit")
-                            })
+                            if self.sessionTitle.isEmpty {
+                                Text("Session Title:")
+                                TextField("", text: $sessionTitleTextField, onCommit: {
+                                    self.submitSessionTitle()
+                                })
+                                Button(action: {
+                                    self.submitSessionTitle()
+                                }, label: {
+                                    Text("Submit")
+                                })
+                            }
                         }
-                        Text(sessionTitle).font(.title)
+                        Text(sessionTitle).font(Font.title)
                         SessionButton(text: "Start Session")
                     }
                 }
