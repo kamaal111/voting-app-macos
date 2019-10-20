@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var sessionTitleTextField = ""
     @State private var sessionTitle = ""
     @State private var qrCodeUrlFetched = false
-    @State private var qrCodePath = "github.com"
+    @State private var qrCodePath = "https://github.com/kamaal111"
 
 
     fileprivate func SessionButton(text: String) -> Button<Text> {
@@ -41,12 +41,20 @@ struct ContentView: View {
                         HStack{
                             Text("Session Title:")
                             TextField("", text: $sessionTitleTextField, onCommit: {
-                                if self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty {
-                                    print("hello")
-                                } else {
+                                if !self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
+                                    && self.sessionTitleTextField.count > 2 {
                                     self.sessionTitle = self.sessionTitleTextField
                                     self.sessionTitleTextField = ""
                                 }
+                            })
+                            Button(action: {
+                                if !self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
+                                    && self.sessionTitleTextField.count > 2 {
+                                    self.sessionTitle = self.sessionTitleTextField
+                                    self.sessionTitleTextField = ""
+                                }
+                            }, label: {
+                                Text("Submit")
                             })
                         }
                         Text(sessionTitle).font(.title)
