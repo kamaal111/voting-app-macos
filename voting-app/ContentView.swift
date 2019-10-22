@@ -75,10 +75,13 @@ struct ContentView: View {
                                 self.submitCandidateToList()
                             }, label: {
                                 Text("Submit")
-                            })
+                            }).disabled(
+                                !self.candidatesTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
+                                    && self.candidatesTextField.count > 2 ? false : true
+                            )
                         }
 
-                        List(candidatesList, id: \.id) { candidate in
+                        List(self.candidatesList, id: \.id) { candidate in
                             Text(candidate.name)
                         }
                     }
@@ -93,11 +96,18 @@ struct ContentView: View {
                                     self.submitSessionTitle()
                                 }, label: {
                                     Text("Submit")
-                                })
+                                }).disabled(
+                                    !self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
+                                        && self.sessionTitleTextField.count > 2 ?
+                                            false : true
+                                )
                             }
                         }
                         Text(sessionTitle).font(Font.title)
-                        SessionButton(text: "Start Session")
+                        SessionButton(text: "Start Session").disabled(
+                            !self.sessionTitle.isEmpty
+                                && self.candidatesList.count > 1 ? false : true
+                        )
                     }
                 }
             }
