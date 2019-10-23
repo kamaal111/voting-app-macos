@@ -1,14 +1,11 @@
-//
-//  QR-code-generator.swift
-//  voting-app
-//
-//  Created by Kamaal Farah on 08/10/2019.
-//  Copyright © 2019 Kamaal. All rights reserved.
-//
 
 import AppKit
 
 
+let baseUrl = "http://localhost:5000"
+
+
+// QR code generator
 func generateQRCode(from string: String, size: CGFloat) -> NSImage? {
     let data = string.data(using: String.Encoding.ascii)
 
@@ -26,3 +23,7 @@ func generateQRCode(from string: String, size: CGFloat) -> NSImage? {
     }
     return nil
 }
+
+
+//generateQRCode(from: baseUrl, size: 10)
+
