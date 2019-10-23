@@ -12,12 +12,13 @@
 		60265FC4234CE849001EFC8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60265FC3234CE849001EFC8D /* Assets.xcassets */; };
 		60265FC7234CE849001EFC8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60265FC6234CE849001EFC8D /* Preview Assets.xcassets */; };
 		60265FCA234CE849001EFC8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60265FC8234CE849001EFC8D /* Main.storyboard */; };
-		60265FD3234CF2E1001EFC8D /* QR-code-generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60265FD2234CF2E1001EFC8D /* QR-code-generator.swift */; };
+		60265FD3234CF2E1001EFC8D /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60265FD2234CF2E1001EFC8D /* QRCodeGenerator.swift */; };
 		60307B81235C9B6C00E0F57F /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60307B80235C9B6C00E0F57F /* Candidate.swift */; };
+		60F30F5E236054C8004AC9F6 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F30F5D236054C8004AC9F6 /* Fetch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		600F91812354BB4200B7EE9A /* playing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = playing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		600F91812354BB4200B7EE9A /* qr-code.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "qr-code.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60265FBC234CE848001EFC8D /* voting-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voting-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60265FBF234CE848001EFC8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60265FC1234CE848001EFC8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,8 +27,10 @@
 		60265FC9234CE849001EFC8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60265FCB234CE849001EFC8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60265FCC234CE849001EFC8D /* voting_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = voting_app.entitlements; sourceTree = "<group>"; };
-		60265FD2234CF2E1001EFC8D /* QR-code-generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-code-generator.swift"; sourceTree = "<group>"; };
+		60265FD2234CF2E1001EFC8D /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		60307B80235C9B6C00E0F57F /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
+		60F30F5C236053E8004AC9F6 /* httpRequest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = httpRequest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		60F30F5D236054C8004AC9F6 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,16 +63,16 @@
 		60265FBE234CE848001EFC8D /* voting-app */ = {
 			isa = PBXGroup;
 			children = (
+				60265FC5234CE849001EFC8D /* Preview Content */,
+				60F30F5A23605352004AC9F6 /* Playgrounds */,
+				60F30F5B2360536D004AC9F6 /* Model */,
+				60F30F5F236054D8004AC9F6 /* Helpers */,
 				60265FBF234CE848001EFC8D /* AppDelegate.swift */,
 				60265FC1234CE848001EFC8D /* ContentView.swift */,
-				60265FD2234CF2E1001EFC8D /* QR-code-generator.swift */,
-				60307B80235C9B6C00E0F57F /* Candidate.swift */,
 				60265FC3234CE849001EFC8D /* Assets.xcassets */,
 				60265FC8234CE849001EFC8D /* Main.storyboard */,
 				60265FCB234CE849001EFC8D /* Info.plist */,
 				60265FCC234CE849001EFC8D /* voting_app.entitlements */,
-				60265FC5234CE849001EFC8D /* Preview Content */,
-				600F91812354BB4200B7EE9A /* playing.playground */,
 			);
 			path = "voting-app";
 			sourceTree = "<group>";
@@ -80,6 +83,32 @@
 				60265FC6234CE849001EFC8D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		60F30F5A23605352004AC9F6 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				600F91812354BB4200B7EE9A /* qr-code.playground */,
+				60F30F5C236053E8004AC9F6 /* httpRequest.playground */,
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
+		60F30F5B2360536D004AC9F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60307B80235C9B6C00E0F57F /* Candidate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60F30F5F236054D8004AC9F6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				60265FD2234CF2E1001EFC8D /* QRCodeGenerator.swift */,
+				60F30F5D236054C8004AC9F6 /* Fetch.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F30F5E236054C8004AC9F6 /* Fetch.swift in Sources */,
 				60265FC2234CE848001EFC8D /* ContentView.swift in Sources */,
 				60265FC0234CE848001EFC8D /* AppDelegate.swift in Sources */,
-				60265FD3234CF2E1001EFC8D /* QR-code-generator.swift in Sources */,
+				60265FD3234CF2E1001EFC8D /* QRCodeGenerator.swift in Sources */,
 				60307B81235C9B6C00E0F57F /* Candidate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
