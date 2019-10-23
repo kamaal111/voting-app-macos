@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16ED83DA22FE0726530516A5 /* Pods_voting_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2461FB2EFD5B891083F6E397 /* Pods_voting_app.framework */; };
 		60265FC0234CE848001EFC8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60265FBF234CE848001EFC8D /* AppDelegate.swift */; };
 		60265FC2234CE848001EFC8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60265FC1234CE848001EFC8D /* ContentView.swift */; };
 		60265FC4234CE849001EFC8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60265FC3234CE849001EFC8D /* Assets.xcassets */; };
 		60265FC7234CE849001EFC8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60265FC6234CE849001EFC8D /* Preview Assets.xcassets */; };
 		60265FCA234CE849001EFC8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60265FC8234CE849001EFC8D /* Main.storyboard */; };
-		60265FD3234CF2E1001EFC8D /* QR-code-generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60265FD2234CF2E1001EFC8D /* QR-code-generator.swift */; };
+		60265FD3234CF2E1001EFC8D /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60265FD2234CF2E1001EFC8D /* QRCodeGenerator.swift */; };
 		60307B81235C9B6C00E0F57F /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60307B80235C9B6C00E0F57F /* Candidate.swift */; };
+		60F30F5E236054C8004AC9F6 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F30F5D236054C8004AC9F6 /* Fetch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2461FB2EFD5B891083F6E397 /* Pods_voting_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_voting_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		600F91812354BB4200B7EE9A /* playing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = playing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		600F91812354BB4200B7EE9A /* qr-code.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "qr-code.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60265FBC234CE848001EFC8D /* voting-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voting-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60265FBF234CE848001EFC8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60265FC1234CE848001EFC8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,10 +27,10 @@
 		60265FC9234CE849001EFC8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60265FCB234CE849001EFC8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60265FCC234CE849001EFC8D /* voting_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = voting_app.entitlements; sourceTree = "<group>"; };
-		60265FD2234CF2E1001EFC8D /* QR-code-generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-code-generator.swift"; sourceTree = "<group>"; };
+		60265FD2234CF2E1001EFC8D /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		60307B80235C9B6C00E0F57F /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
-		873A55CDD7B72CD8DF9CD623 /* Pods-voting-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voting-app.debug.xcconfig"; path = "Target Support Files/Pods-voting-app/Pods-voting-app.debug.xcconfig"; sourceTree = "<group>"; };
-		C2F6FFA77B69C3F8B6AAAF57 /* Pods-voting-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voting-app.release.xcconfig"; path = "Target Support Files/Pods-voting-app/Pods-voting-app.release.xcconfig"; sourceTree = "<group>"; };
+		60F30F5C236053E8004AC9F6 /* httpRequest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = httpRequest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		60F30F5D236054C8004AC9F6 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,37 +38,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16ED83DA22FE0726530516A5 /* Pods_voting_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C15B91F5FACA66BB86A79BA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				873A55CDD7B72CD8DF9CD623 /* Pods-voting-app.debug.xcconfig */,
-				C2F6FFA77B69C3F8B6AAAF57 /* Pods-voting-app.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		3CC126F326690E53A42CD803 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2461FB2EFD5B891083F6E397 /* Pods_voting_app.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		60265FB3234CE848001EFC8D = {
 			isa = PBXGroup;
 			children = (
 				60265FBE234CE848001EFC8D /* voting-app */,
 				60265FBD234CE848001EFC8D /* Products */,
-				0C15B91F5FACA66BB86A79BA /* Pods */,
-				3CC126F326690E53A42CD803 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,16 +63,16 @@
 		60265FBE234CE848001EFC8D /* voting-app */ = {
 			isa = PBXGroup;
 			children = (
+				60265FC5234CE849001EFC8D /* Preview Content */,
+				60F30F5A23605352004AC9F6 /* Playgrounds */,
+				60F30F5B2360536D004AC9F6 /* Model */,
+				60F30F5F236054D8004AC9F6 /* Helpers */,
 				60265FBF234CE848001EFC8D /* AppDelegate.swift */,
 				60265FC1234CE848001EFC8D /* ContentView.swift */,
-				60265FD2234CF2E1001EFC8D /* QR-code-generator.swift */,
-				60307B80235C9B6C00E0F57F /* Candidate.swift */,
 				60265FC3234CE849001EFC8D /* Assets.xcassets */,
 				60265FC8234CE849001EFC8D /* Main.storyboard */,
 				60265FCB234CE849001EFC8D /* Info.plist */,
 				60265FCC234CE849001EFC8D /* voting_app.entitlements */,
-				60265FC5234CE849001EFC8D /* Preview Content */,
-				600F91812354BB4200B7EE9A /* playing.playground */,
 			);
 			path = "voting-app";
 			sourceTree = "<group>";
@@ -106,6 +85,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		60F30F5A23605352004AC9F6 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				600F91812354BB4200B7EE9A /* qr-code.playground */,
+				60F30F5C236053E8004AC9F6 /* httpRequest.playground */,
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
+		60F30F5B2360536D004AC9F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60307B80235C9B6C00E0F57F /* Candidate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60F30F5F236054D8004AC9F6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				60265FD2234CF2E1001EFC8D /* QRCodeGenerator.swift */,
+				60F30F5D236054C8004AC9F6 /* Fetch.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,7 +118,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60265FCF234CE849001EFC8D /* Build configuration list for PBXNativeTarget "voting-app" */;
 			buildPhases = (
-				145664FB8AE361AD8D8F406C /* [CP] Check Pods Manifest.lock */,
 				60265FB8234CE848001EFC8D /* Sources */,
 				60265FB9234CE848001EFC8D /* Frameworks */,
 				60265FBA234CE848001EFC8D /* Resources */,
@@ -173,39 +177,15 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		145664FB8AE361AD8D8F406C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-voting-app-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		60265FB8234CE848001EFC8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F30F5E236054C8004AC9F6 /* Fetch.swift in Sources */,
 				60265FC2234CE848001EFC8D /* ContentView.swift in Sources */,
 				60265FC0234CE848001EFC8D /* AppDelegate.swift in Sources */,
-				60265FD3234CF2E1001EFC8D /* QR-code-generator.swift in Sources */,
+				60265FD3234CF2E1001EFC8D /* QRCodeGenerator.swift in Sources */,
 				60307B81235C9B6C00E0F57F /* Candidate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,7 +319,6 @@
 		};
 		60265FD0234CE849001EFC8D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 873A55CDD7B72CD8DF9CD623 /* Pods-voting-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting_app.entitlements";
@@ -363,7 +342,6 @@
 		};
 		60265FD1234CE849001EFC8D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2F6FFA77B69C3F8B6AAAF57 /* Pods-voting-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting_app.entitlements";
