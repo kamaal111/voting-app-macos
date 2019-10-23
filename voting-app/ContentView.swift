@@ -10,6 +10,9 @@
 import SwiftUI
 
 
+let baseUrl = "http://localhost:5000"
+
+
 struct ContentView: View {
     @State private var sessionTitleTextField = ""
     @State private var sessionTitle = ""
@@ -21,13 +24,14 @@ struct ContentView: View {
     @State private var candidatesList: [Candidate] = []
 
 
-    let sessionTitleMaxLength = 15
+
+    let fetch = Fetch(baseUrl: baseUrl)
 
 
     func submitSessionTitle() -> Void {
         if !self.sessionTitleTextField.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
             && self.sessionTitleTextField.count > 2 {
-            self.sessionTitle = String(self.sessionTitleTextField.prefix(self.sessionTitleMaxLength))
+            self.sessionTitle = String(self.sessionTitleTextField.prefix(15))
             self.sessionTitleTextField = ""
         }
     }
@@ -86,6 +90,13 @@ struct ContentView: View {
                         }
                     }
                     VStack {
+                        Button(action: {
+                            self.fetch.get(path: "/test", completion: {
+                                (res: Any) in print(res)
+                            })
+                        }, label: {
+                            Text("Test Fetch")
+                        })
                         HStack{
                             if self.sessionTitle.isEmpty {
                                 Text("Session Title:")

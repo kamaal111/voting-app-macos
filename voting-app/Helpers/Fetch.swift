@@ -15,7 +15,7 @@ struct Fetch {
 
 
     func get(path: String, completion: @escaping (_ res: [String: Any]) -> Void) {
-        guard let url = URL(string: "\(baseUrl)\(path)") else { return }
+        guard let url = URL(string: "\(self.baseUrl)\(path)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let dataResponse = data, error == nil else {
                 print(error?.localizedDescription ?? "Response Error")
@@ -35,7 +35,7 @@ struct Fetch {
 
 
     func post(path: String, send body: [String: Any], completion: @escaping (_ res: [String: Any]) -> Void) {
-        guard let url = URL(string: "\(baseUrl)\(path)") else { return }
+        guard let url = URL(string: "\(self.baseUrl)\(path)") else { return }
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
