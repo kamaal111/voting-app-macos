@@ -10,7 +10,7 @@
 import SwiftUI
 
 
-let baseUrl = "http://localhost:5000"
+let baseUrl = "http://localhost:8000"
 
 
 struct ContentView: View {
@@ -50,9 +50,32 @@ struct ContentView: View {
     }
 
 
-    fileprivate func SessionButton(text: String) -> Button<Text> {
+    fileprivate func StartSessionButton(text: String) -> Button<Text> {
         return Button(action: {
-            self.qrCodeUrlFetched = !self.qrCodeUrlFetched
+            var candidates: [[String:String]] = []
+
+            for candidate in self.candidatesList {
+                candidates.append(["name": candidate.name])
+            }
+
+            self.fetch.post(path: "/sessions", send: ["name": self.sessionTitle, "candidates": candidates], completion: {
+                (res: [String: Any]) in if let status = res["status"] as? Int {
+                    if status != 200 {
+                        if let statusMessage = res["message"] as? String {
+                            print(statusMessage)
+                            return
+                        }
+                        print("Oops!")
+                        return
+                    }
+
+                    if let data = res["data"] as? [String: Any], let sessionID = data["InsertedID"] as? String {
+                        print("sessionID", sessionID)
+                        self.qrCodePath = "http://localhost:4000/\(sessionID)"
+                        self.qrCodeUrlFetched = true
+                    }
+                }
+            })
         }, label: {
             Text(text)
         })
@@ -63,7 +86,7 @@ struct ContentView: View {
         VStack {
             if qrCodeUrlFetched {
                 Text("Time to vote")
-                SessionButton(text: "End Session")
+//                SessionButton(text: "End Session")
                 Image(nsImage: generateQRCode(from: qrCodePath, size: 10)!)
                     .padding(EdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0))
             } else {
@@ -90,13 +113,6 @@ struct ContentView: View {
                         }
                     }
                     VStack {
-                        Button(action: {
-                            self.fetch.get(path: "/test", completion: {
-                                (res: Any) in print(res)
-                            })
-                        }, label: {
-                            Text("Test Fetch")
-                        })
                         HStack{
                             if self.sessionTitle.isEmpty {
                                 Text("Session Title:")
@@ -115,7 +131,7 @@ struct ContentView: View {
                             }
                         }
                         Text(sessionTitle).font(Font.title)
-                        SessionButton(text: "Start Session").disabled(
+                        StartSessionButton(text: "Start Session").disabled(
                             !self.sessionTitle.isEmpty
                                 && self.candidatesList.count > 1 ? false : true
                         )
