@@ -19,6 +19,7 @@
 		604BB93A2364776B00FC77AC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604BB9392364776B00FC77AC /* RegistrationView.swift */; };
 		60E6488B2364874400433D7C /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6488A2364874400433D7C /* Enviroment.swift */; };
 		60E6488D23648F3100433D7C /* CandidatesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6488C23648F3100433D7C /* CandidatesSection.swift */; };
+		60E6488F2364914D00433D7C /* SessionTitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6488E2364914D00433D7C /* SessionTitleSection.swift */; };
 		60F30F5E236054C8004AC9F6 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F30F5D236054C8004AC9F6 /* Fetch.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		609E2DFE2364806A0090A11B /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		60E6488A2364874400433D7C /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		60E6488C23648F3100433D7C /* CandidatesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSection.swift; sourceTree = "<group>"; };
+		60E6488E2364914D00433D7C /* SessionTitleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTitleSection.swift; sourceTree = "<group>"; };
 		60F30F5C236053E8004AC9F6 /* httpRequest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = httpRequest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60F30F5D236054C8004AC9F6 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 			children = (
 				604BB9352364740E00FC77AC /* StartSessionButton.swift */,
 				60E6488C23648F3100433D7C /* CandidatesSection.swift */,
+				60E6488E2364914D00433D7C /* SessionTitleSection.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				60265FD3234CF2E1001EFC8D /* QRCodeGenerator.swift in Sources */,
 				60E6488D23648F3100433D7C /* CandidatesSection.swift in Sources */,
 				60E6488B2364874400433D7C /* Enviroment.swift in Sources */,
+				60E6488F2364914D00433D7C /* SessionTitleSection.swift in Sources */,
 				604BB9362364740E00FC77AC /* StartSessionButton.swift in Sources */,
 				60307B81235C9B6C00E0F57F /* Candidate.swift in Sources */,
 				604BB93A2364776B00FC77AC /* RegistrationView.swift in Sources */,
