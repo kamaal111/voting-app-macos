@@ -10,18 +10,14 @@
 import SwiftUI
 
 
-let apiUrl = "http://localhost:8000"
-
-
 struct StartSessionButton: View {
     let listOfCandidates: [Candidate]
     let sessionTitle: String
 
     @Binding var qrCodePath: String
     @Binding var qrCodeUrlFetched: Bool
-
-
-    let fetch = Fetch(baseUrl: apiUrl)
+    
+    let fetch = Fetch(baseUrl: Environment.apiUrl)
 
 
     var body: some View {
@@ -49,7 +45,7 @@ struct StartSessionButton: View {
                             return
                         }
 
-                        self.qrCodePath = "http://localhost:3000/\(sessionID)"
+                        self.qrCodePath = "\(Environment.webUrl)/\(sessionID)"
                         self.qrCodeUrlFetched = true
                     }
 

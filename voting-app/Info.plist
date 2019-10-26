@@ -47,6 +47,10 @@
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
+	<key>API_URL</key>
+	<string>$(API_URL)</string>
+	<key>WEB_URL</key>
+	<string>$(WEB_URL)</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 </dict>

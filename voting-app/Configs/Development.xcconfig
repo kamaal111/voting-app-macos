@@ -8,3 +8,9 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+
+// Server URL
+API_URL = http:/$()/localhost:8000
+
+// Web URL
+WEB_URL = http:/$()/localhost:3000
