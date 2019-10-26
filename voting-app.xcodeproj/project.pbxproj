@@ -17,6 +17,7 @@
 		604BB9362364740E00FC77AC /* StartSessionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604BB9352364740E00FC77AC /* StartSessionButton.swift */; };
 		604BB9382364757000FC77AC /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604BB9372364757000FC77AC /* SessionView.swift */; };
 		604BB93A2364776B00FC77AC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604BB9392364776B00FC77AC /* RegistrationView.swift */; };
+		60E6488B2364874400433D7C /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6488A2364874400433D7C /* Enviroment.swift */; };
 		60F30F5E236054C8004AC9F6 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F30F5D236054C8004AC9F6 /* Fetch.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		609E2DFC2364803B0090A11B /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		609E2DFD236480570090A11B /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		609E2DFE2364806A0090A11B /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		60E6488A2364874400433D7C /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		60F30F5C236053E8004AC9F6 /* httpRequest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = httpRequest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60F30F5D236054C8004AC9F6 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				60265FBF234CE848001EFC8D /* AppDelegate.swift */,
+				60E6488A2364874400433D7C /* Enviroment.swift */,
 				609E2DFC2364803B0090A11B /* Development.xcconfig */,
 				609E2DFD236480570090A11B /* Staging.xcconfig */,
 				609E2DFE2364806A0090A11B /* Production.xcconfig */,
@@ -236,6 +239,7 @@
 				60265FC2234CE848001EFC8D /* ContentView.swift in Sources */,
 				60265FC0234CE848001EFC8D /* AppDelegate.swift in Sources */,
 				60265FD3234CF2E1001EFC8D /* QRCodeGenerator.swift in Sources */,
+				60E6488B2364874400433D7C /* Enviroment.swift in Sources */,
 				604BB9362364740E00FC77AC /* StartSessionButton.swift in Sources */,
 				60307B81235C9B6C00E0F57F /* Candidate.swift in Sources */,
 				604BB93A2364776B00FC77AC /* RegistrationView.swift in Sources */,
@@ -258,6 +262,7 @@
 /* Begin XCBuildConfiguration section */
 		60265FCD234CE849001EFC8D /* Debug(Development) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFC2364803B0090A11B /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -313,11 +318,13 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Debug(Development)";
 		};
 		60265FCE234CE849001EFC8D /* Release(Development) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFC2364803B0090A11B /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -366,11 +373,13 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Release(Development)";
 		};
 		60265FD0234CE849001EFC8D /* Debug(Development) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFC2364803B0090A11B /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting_app.entitlements";
@@ -394,6 +403,7 @@
 		};
 		60265FD1234CE849001EFC8D /* Release(Development) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFC2364803B0090A11B /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting-appRelease.entitlements";
@@ -417,6 +427,7 @@
 		};
 		609E2DF223647CB10090A11B /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFD236480570090A11B /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -472,11 +483,13 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Debug(Staging)";
 		};
 		609E2DF323647CB10090A11B /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFD236480570090A11B /* Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting_app.entitlements";
@@ -500,6 +513,7 @@
 		};
 		609E2DF423647CF60090A11B /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFE2364806A0090A11B /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -555,11 +569,13 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Debug(Production)";
 		};
 		609E2DF523647CF60090A11B /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFE2364806A0090A11B /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting_app.entitlements";
@@ -583,6 +599,7 @@
 		};
 		609E2DF623647D0F0090A11B /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFD236480570090A11B /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -631,11 +648,13 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Release(Staging)";
 		};
 		609E2DF723647D0F0090A11B /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFD236480570090A11B /* Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting-appRelease.entitlements";
@@ -659,6 +678,7 @@
 		};
 		609E2DF823647D1E0090A11B /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFE2364806A0090A11B /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -707,11 +727,13 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Release(Production)";
 		};
 		609E2DF923647D1E0090A11B /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609E2DFE2364806A0090A11B /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "voting-app/voting-appRelease.entitlements";
