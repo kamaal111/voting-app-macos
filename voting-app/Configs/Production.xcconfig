@@ -1,0 +1,16 @@
+//
+//  Production.xcconfig
+//  voting-app
+//
+//  Created by Kamaal Farah on 26/10/2019.
+//  Copyright © 2019 Kamaal. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Server URL
+API_URL = http:/$()/localhost:8000
+
+// Web URL
+WEB_URL = http:/$()/localhost:3000
