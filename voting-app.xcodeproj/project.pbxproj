@@ -26,9 +26,10 @@
 		60265FC6234CE849001EFC8D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		60265FC9234CE849001EFC8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60265FCB234CE849001EFC8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60265FCC234CE849001EFC8D /* voting_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = voting_app.entitlements; sourceTree = "<group>"; };
 		60265FD2234CF2E1001EFC8D /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		60307B80235C9B6C00E0F57F /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
+		60911AC52361CACB00D2EE4E /* voting-appRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "voting-appRelease.entitlements"; sourceTree = "<group>"; };
+		60911AC62361CB9700D2EE4E /* voting_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = voting_app.entitlements; sourceTree = "<group>"; };
 		60F30F5C236053E8004AC9F6 /* httpRequest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = httpRequest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60F30F5D236054C8004AC9F6 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +73,8 @@
 				60265FC3234CE849001EFC8D /* Assets.xcassets */,
 				60265FC8234CE849001EFC8D /* Main.storyboard */,
 				60265FCB234CE849001EFC8D /* Info.plist */,
-				60265FCC234CE849001EFC8D /* voting_app.entitlements */,
+				60911AC52361CACB00D2EE4E /* voting-appRelease.entitlements */,
+				60911AC62361CB9700D2EE4E /* voting_app.entitlements */,
 			);
 			path = "voting-app";
 			sourceTree = "<group>";
@@ -344,7 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "voting-app/voting_app.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "voting-app/voting-appRelease.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"voting-app/Preview Content\"";

@@ -21,8 +21,7 @@ struct ContentView: View {
     @State private var qrCodePath = "https://github.com/kamaal111"
 
     @State private var candidatesTextField = ""
-    @State private var candidatesList: [Candidate] = []
-
+    @State private var candidatesList = [Candidate]()
 
 
     let fetch = Fetch(baseUrl: baseUrl)
@@ -52,29 +51,36 @@ struct ContentView: View {
 
     fileprivate func StartSessionButton(text: String) -> Button<Text> {
         return Button(action: {
-            var candidates: [[String:String]] = []
+            var candidates = [[String:String]]()
 
             for candidate in self.candidatesList {
                 candidates.append(["name": candidate.name])
             }
 
-            self.fetch.post(path: "/sessions", send: ["name": self.sessionTitle, "candidates": candidates], completion: {
-                (res: [String: Any]) in if let status = res["status"] as? Int {
+            self.fetch.post(path: "/sessions", send: ["name": self.sessionTitle, "candidates": candidates], completion: { (res) in
+                switch res {
+                case .success(let success):
+                    guard let status = success["status"] as? Int else { return }
+
                     if status != 200 {
-                        if let statusMessage = res["message"] as? String {
-                            print(statusMessage)
+                        guard let statusMessage = success["message"] as? String else {
+                            print("Oops!")
                             return
                         }
-                        print("Oops!")
-                        return
-                    }
 
-                    if let data = res["data"] as? [String: Any], let sessionID = data["InsertedID"] as? String {
-                        print("sessionID", sessionID)
-                        self.qrCodePath = "http://localhost:4000/\(sessionID)"
+                        print(statusMessage)
+                    } else {
+                        guard let data = success["data"] as? [String: Any], let sessionID = data["InsertedID"] as? String else {
+                            return
+                        }
+
+                        self.qrCodePath = "http://localhost:3000/\(sessionID)"
                         self.qrCodeUrlFetched = true
                     }
+
+                case .failure(let failure): print(failure)
                 }
+
             })
         }, label: {
             Text(text)
@@ -86,9 +92,9 @@ struct ContentView: View {
         VStack {
             if qrCodeUrlFetched {
                 Text("Time to vote")
-//                SessionButton(text: "End Session")
                 Image(nsImage: generateQRCode(from: qrCodePath, size: 10)!)
                     .padding(EdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0))
+                Button(action: { print(self.qrCodePath) }, label: { Text("qrCodePath") })
             } else {
                 HStack {
                     VStack {

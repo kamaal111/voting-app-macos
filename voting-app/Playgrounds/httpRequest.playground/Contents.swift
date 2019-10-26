@@ -2,37 +2,40 @@
 import Foundation
 
 
-let baseUrl = "http://localhost:5000"
+let baseUrl = "http://localhost:8000"
 
 
 // http requests
 struct HTTPRequest {
-    var baseUrl: String
+    let baseUrl: String
 
 
     // GET request
-    func get(path: String, completion: @escaping (_ res: [String: Any]) -> Void) {
+    func get(path: String, completion: @escaping (Result<[String:Any], Error>) -> ()) {
         guard let url = URL(string: "\(self.baseUrl)\(path)") else { return }
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let dataResponse = data, error == nil else {
-                print(error?.localizedDescription ?? "Response Error")
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
                 return
             }
+
             do {
+                guard let dataResponse = data else { return }
+
                 let jsonResponse = try JSONSerialization.jsonObject(with: dataResponse, options: [])
-                if let response = response as? HTTPURLResponse {
-                    completion(["status": response.statusCode, "data": jsonResponse] as [String : Any])
-                }
+                guard let response = response as? HTTPURLResponse else { return }
+
+                let success = ["status": response.statusCode, "data": jsonResponse] as [String : Any]
+                completion(.success(success))
             } catch let parsingError {
-                print("Error", parsingError)
+                completion(.failure(parsingError))
             }
-        }
-        task.resume()
+        }.resume()
     }
 
 
     // POST request
-    func post(path: String, send body: [String: Any], completion: @escaping (_ res: [String: Any]) -> Void) {
+    func post(path: String, send body: [String: Any], completion: @escaping (Result<[String: Any], Error>) -> ()) {
         guard let url = URL(string: "\(self.baseUrl)\(path)") else { return }
 
         var request = URLRequest(url: url)
@@ -41,29 +44,35 @@ struct HTTPRequest {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let dataResponse = data, error == nil else {
-                print(error?.localizedDescription ?? "Response Error")
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
                 return
             }
+
             do {
+                guard let dataResponse = data else { return }
+
                 let jsonResponse = try JSONSerialization.jsonObject(with: dataResponse, options: [])
-                if let response = response as? HTTPURLResponse {
-                    completion(["status": response.statusCode, "data": jsonResponse] as [String : Any])
-                }
+                guard let response = response as? HTTPURLResponse else { return }
+
+                let success = ["status": response.statusCode, "data": jsonResponse] as [String : Any]
+                completion(.success(success))
             } catch let parsingError {
-                print("Error", parsingError)
+                completion(.failure(parsingError))
             }
-        }
-        task.resume()
+        }.resume()
     }
 }
 
 
 let fetch = HTTPRequest(baseUrl: baseUrl)
 
-//fetch.get(path: "/test",completion: {
-//    (res: Any) in print(res)
+//fetch.get(path: "/sessions",completion: { (res) in
+//    switch res {
+//    case .success(let success): print(success)
+//    case .failure(let failure): print(failure)
+//    }
 //})
 
 let sendBody: [String: Any] = [
@@ -74,6 +83,9 @@ let sendBody: [String: Any] = [
     ]
 ]
 
-//fetch.post(path: "/test", send: sendBody, completion: {
-//    (res: Any) in print(res)
+//fetch.post(path: "/sessions", send: sendBody, completion: { (res) in
+//    switch res {
+//    case .success(let success): print(success)
+//    case .failure(let failure): print(failure)
+//    }
 //})
